@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19172962D4C06C5E49503E7C /* Pods_HeroisMarvel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8044DE1B19B982BCDEB6AB /* Pods_HeroisMarvel.framework */; };
 		A13D20961F9D323300EB19F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13D20951F9D323300EB19F7 /* AppDelegate.swift */; };
 		A13D20981F9D323300EB19F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13D20971F9D323300EB19F7 /* ViewController.swift */; };
 		A13D209B1F9D323300EB19F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A13D20991F9D323300EB19F7 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		178E9C8BAAC4F7A74EF726FE /* Pods-HeroisMarvel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroisMarvel.release.xcconfig"; path = "Target Support Files/Pods-HeroisMarvel/Pods-HeroisMarvel.release.xcconfig"; sourceTree = "<group>"; };
 		A13D20921F9D323300EB19F7 /* HeroisMarvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeroisMarvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A13D20951F9D323300EB19F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A13D20971F9D323300EB19F7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -26,6 +28,8 @@
 		A13D20A11F9D323300EB19F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A13D20A71F9D331600EB19F7 /* HeroesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesTableViewController.swift; sourceTree = "<group>"; };
 		A13D20A91F9D333F00EB19F7 /* HeroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroViewController.swift; sourceTree = "<group>"; };
+		DC8044DE1B19B982BCDEB6AB /* Pods_HeroisMarvel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeroisMarvel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3686B258CA299F98B7E5621 /* Pods-HeroisMarvel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroisMarvel.debug.xcconfig"; path = "Target Support Files/Pods-HeroisMarvel/Pods-HeroisMarvel.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +37,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19172962D4C06C5E49503E7C /* Pods_HeroisMarvel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3BD28965F8E488E21E08BEC6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E3686B258CA299F98B7E5621 /* Pods-HeroisMarvel.debug.xcconfig */,
+				178E9C8BAAC4F7A74EF726FE /* Pods-HeroisMarvel.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		77F334EBA2F74E48C610EB98 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC8044DE1B19B982BCDEB6AB /* Pods_HeroisMarvel.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A13D20891F9D323300EB19F7 = {
 			isa = PBXGroup;
 			children = (
 				A13D20941F9D323300EB19F7 /* HeroisMarvel */,
 				A13D20931F9D323300EB19F7 /* Products */,
+				3BD28965F8E488E21E08BEC6 /* Pods */,
+				77F334EBA2F74E48C610EB98 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A13D20A41F9D323300EB19F7 /* Build configuration list for PBXNativeTarget "HeroisMarvel" */;
 			buildPhases = (
+				8FA0A6BBB96CAFD8018FFD33 /* [CP] Check Pods Manifest.lock */,
 				A13D208E1F9D323300EB19F7 /* Sources */,
 				A13D208F1F9D323300EB19F7 /* Frameworks */,
 				A13D20901F9D323300EB19F7 /* Resources */,
+				AF941304A65532409B066B47 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -136,6 +162,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8FA0A6BBB96CAFD8018FFD33 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HeroisMarvel-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF941304A65532409B066B47 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HeroisMarvel/Pods-HeroisMarvel-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftHash/SwiftHash.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftHash.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HeroisMarvel/Pods-HeroisMarvel-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A13D208E1F9D323300EB19F7 /* Sources */ = {
@@ -280,10 +353,12 @@
 		};
 		A13D20A51F9D323300EB19F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3686B258CA299F98B7E5621 /* Pods-HeroisMarvel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = HeroisMarvel/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ericbrito.HeroisMarvel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -294,10 +369,12 @@
 		};
 		A13D20A61F9D323300EB19F7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 178E9C8BAAC4F7A74EF726FE /* Pods-HeroisMarvel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = HeroisMarvel/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ericbrito.HeroisMarvel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
