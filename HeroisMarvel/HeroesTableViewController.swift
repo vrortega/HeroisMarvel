@@ -25,7 +25,9 @@ class HeroesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        label.text = "Buscando herois. Aguarde..."
+        label.text = "Buscando heróis. Aguarde..."
+        tableView.backgroundView = label
+        print("HeroesTableViewController loaded")
         loadHeroes()
     }
     
@@ -35,20 +37,33 @@ class HeroesTableViewController: UITableViewController {
     }
     
     func loadHeroes() {
-    loadingHeroes = true
-        MarvelAPI.loadHeros(name: name, page: currentPage) { (info) in
-            if let info = info {
-                self.heroes += info.data.results
-                self.total = info.data.total
-                print("Total", self.total)
-                DispatchQueue.main.async {
-                    self.loadingHeroes = false
-                    self.label.text = "Nao foram encontrados herois com o nome \(self.name)"
-                    self.tableView.reloadData()
-                }
-            }
-        }
-    }
+           loadingHeroes = true
+           MarvelAPI.loadHeros(name: name, page: currentPage) { [weak self] (info) in
+               guard let self = self else { return }
+               if let info = info {
+                   print("Received info: \(info)")
+                   self.heroes += info.data.results
+                   self.total = info.data.total
+                   print("Total heroes: \(self.total)")
+                   DispatchQueue.main.async {
+                       self.loadingHeroes = false
+                       if self.heroes.isEmpty {
+                           self.label.text = "Não foram encontrados heróis com o nome \(self.name ?? "")"
+                       } else {
+                           self.label.text = ""
+                       }
+                       self.tableView.reloadData()
+                       print("Table view reloaded with \(self.heroes.count) heroes.")
+                   }
+               } else {
+                   DispatchQueue.main.async {
+                       self.loadingHeroes = false
+                       self.label.text = "Erro ao carregar heróis."
+                       print("Erro ao carregar herois")
+                   }
+               }
+           }
+       }
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -56,12 +71,14 @@ class HeroesTableViewController: UITableViewController {
         return heroes.count
     }
 
-
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HeroTableViewCell
+        let hero = heroes[indexPath.row]
+        cell.prepareCell(with: hero)
         return cell
     }
+}
+
 
     /*
     // Override to support conditional editing of the table view.
@@ -108,4 +125,4 @@ class HeroesTableViewController: UITableViewController {
     }
     */
 
-}
+

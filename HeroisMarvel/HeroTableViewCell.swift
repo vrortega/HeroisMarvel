@@ -21,24 +21,24 @@ class HeroTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func prepareCell(with hero: Hero) {
         lbName.text = hero.name
         lbDescription.text = hero.description
-        if let url = URL(string: hero.thumbnail.url) {
+        if let url = URL(string: "\(hero.thumbnail.path).\(hero.thumbnail.ext)") {
             ivThumb.kf.indicatorType = .activity
             ivThumb.kf.setImage(with: url)
-        
         } else {
             ivThumb.image = nil
         }
         
-        ivThumb.layer.cornerRadius = ivThumb.frame.size.height/2
+        ivThumb.layer.cornerRadius = ivThumb.frame.size.height / 2
         ivThumb.layer.borderColor = UIColor.red.cgColor
         ivThumb.layer.borderWidth = 2
+        
+        print("Name: \(hero.name)")
+        print("Description: \(hero.description)")
+        //print("Thumbnail: \(hero.thumbnail.url)")
     }
-
 }
