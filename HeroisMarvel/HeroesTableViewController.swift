@@ -27,7 +27,6 @@ class HeroesTableViewController: UITableViewController {
         super.viewDidLoad()
         label.text = "Buscando heróis. Aguarde..."
         tableView.backgroundView = label
-        print("HeroesTableViewController loaded")
         loadHeroes()
     }
     
@@ -48,7 +47,6 @@ class HeroesTableViewController: UITableViewController {
                if let info = info {
                    self.heroes += info.data.results
                    self.total = info.data.total
-                   print("Total heroes: \(self.total)")
                    DispatchQueue.main.async {
                        self.loadingHeroes = false
                        if self.heroes.isEmpty {
@@ -57,13 +55,11 @@ class HeroesTableViewController: UITableViewController {
                            self.label.text = ""
                        }
                        self.tableView.reloadData()
-                       print("Table view reloaded with \(self.heroes.count) heroes.")
                    }
                } else {
                    DispatchQueue.main.async {
                        self.loadingHeroes = false
                        self.label.text = "Erro ao carregar heróis."
-                       print("Erro ao carregar herois")
                    }
                }
            }
@@ -87,7 +83,6 @@ class HeroesTableViewController: UITableViewController {
         if indexPath.row == heroes.count - 10 && !loadingHeroes && heroes.count != total {
             currentPage += 1
             loadHeroes()
-            print("Carregando mais herois")
         }
     }
 }

@@ -25,14 +25,11 @@ class MarvelAPI {
             startsWith = ""
         }
         let url = basePath + "offset=\(offset)&limit=\(limit)&" + startsWith + getCredentials()
-        print("URL:", url)
         
         AF.request(url).responseJSON { response in
             switch response.result {
             case .success(let value):
-                print("Valor recebido:", value)
                 guard let data = response.data else {
-                    print("Erro: Não foi possível obter os dados da resposta.")
                     onComplete(nil)
                     return
                 }
@@ -40,18 +37,15 @@ class MarvelAPI {
                 do {
                     let marvelInfo = try JSONDecoder().decode(MarvelInfo.self, from: data)
                     guard marvelInfo.code == 200 else {
-                        print("Erro: Código de erro da Marvel API:", marvelInfo.code)
                         onComplete(nil)
                         return
                     }
                     onComplete(marvelInfo)
                 } catch {
-                    print("Erro ao decodificar resposta JSON:", error)
                     onComplete(nil)
                 }
                 
             case .failure(let error):
-                print("Erro na requisição:", error)
                 onComplete(nil)
             }
         }

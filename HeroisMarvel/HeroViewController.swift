@@ -21,11 +21,12 @@ class HeroViewController: UIViewController {
         let url = URL(string: hero.urls.first!.url)
         let request = URLRequest(url: url!)
         title = hero.name
-        
+
         webView.allowsBackForwardNavigationGestures = true
         webView.navigationDelegate = self
         webView.load(request)
     }
+ 
 
 }
 
