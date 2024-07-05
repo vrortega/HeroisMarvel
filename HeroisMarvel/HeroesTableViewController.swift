@@ -36,6 +36,11 @@ class HeroesTableViewController: UITableViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! HeroViewController
+        vc.hero = heroes[tableView.indexPathForSelectedRow!.row]
+    }
+    
     func loadHeroes() {
            loadingHeroes = true
            MarvelAPI.loadHeros(name: name, page: currentPage) { [weak self] (info) in
