@@ -37,8 +37,5 @@ class HeroTableViewCell: UITableViewCell {
         ivThumb.layer.borderColor = UIColor.red.cgColor
         ivThumb.layer.borderWidth = 2
         
-        print("Name: \(hero.name)")
-        print("Description: \(hero.description)")
-        //print("Thumbnail: \(hero.thumbnail.url)")
     }
 }
